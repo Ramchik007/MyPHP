@@ -5,20 +5,24 @@
 $numbers = [1,3,5,7,10,5,15,56,76,2];
 $numbersNew =[4];
 
-function maxArrayElement($array,$i = 0, $maxIndex = 0) {
-    $arrayLength = count($array)-1;
 
-    if ($i == $arrayLength) {
+function maxArrayElement($array,$i = 0, $maxIndex = 0)
+{
+    $arrayLength = count($array) - 1;
+
+    if ($i <= $arrayLength) {
+        if ($array[$maxIndex] <= $array[$i]) {
+            $maxIndex = $i;
+        }
+        else {
+            echo(NULL);
+        }
+
+        return maxArrayElement($array, $i + 1,$maxIndex);
+
+    } else {
         return $array[$maxIndex];
     }
-
-    else if ($array[$maxIndex] >= $array[$i]) {
-            print_r("iter $i\n");
-            return maxArrayElement($array, $i += 1);
-    }
-        else { $maxIndex = $i;
-        }
 }
 
-
-printf(maxArrayElement($numbers));
+printf("Максимальный элемент массива это %s.",maxArrayElement($numbers));
