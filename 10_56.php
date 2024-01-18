@@ -29,4 +29,3 @@ function simpleNumber($number,$n=2)
 }
 
 printf(simpleNumber(2));
-//printf(count($check));
