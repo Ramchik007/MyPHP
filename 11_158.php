@@ -8,3 +8,21 @@
 присваивание последнему элементу массива значения 0.*/
 
 
+$count = 0;
+$array = [1,3,4,1,1];
+$resultArray=[];
+for ($i = 0; $i<count($array); $i +=1) {
+    for($j=0;$j<count($array);$j+=1) {
+        if($array[$i] == $array[$j] && $i != $j) {
+            $count += 1;
+            if ($i < $j) {
+                $resultArray[] = $i;}
+            else {
+                $resultArray[] = $j;
+                }
+            }
+    }
+}
+
+printf("Count = %s",$count);
+print_r($resultArray);
