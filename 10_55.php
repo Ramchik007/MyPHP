@@ -14,21 +14,48 @@ function interpretate($number,$metric,$i=0)
     if ($ratio >= $metric) {
         $ratio = intdiv($number,$metric);
         $balance = $number % $metric;
-        //printf($i);
-        $result[$i] = $balance;
-        interpretate($ratio,$metric, $i + 1);
+        if ($balance < 10) {
+            $result[$i] = $balance;
+            interpretate($ratio,$metric, $i + 1);
+        }
+        else {
+            switch ($balance) {
+                case 10:
+                    $result[$i] = 'A';
+                    break;
+                case 11:
+                    $result[$i] = 'B';
+                    break;
+                case 12:
+                    $result[$i] = 'C';
+                    break;
+                case 13:
+                    $result[$i] = 'D';
+                    break;
+                case 14:
+                    $result[$i] = 'E';
+                    break;
+                case 15:
+                    $result[$i] = 'F';
+                    break;
+
+            }
+            interpretate($ratio,$metric, $i + 1);
+        }
 
     }
     else {
-        //printf($i);
+
         $result[$i] = $ratio;
 
 
     }
 
-    print_r($result);
+    foreach ($result as $elem) {
+        echo $elem;
+    }
 
 }
 
-interpretate(450,8);
-//printf(450 % 8);
+interpretate(650,11);
+
