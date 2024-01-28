@@ -9,20 +9,19 @@
 
 
 $count = 0;
-$array = [1,3,4,1,1];
+$array = [1,3,4,1,1,5,6,7];
 $resultArray=[];
+$deletedElements=[];
 for ($i = 0; $i<count($array); $i +=1) {
-    for($j=0;$j<count($array);$j+=1) {
-        if($array[$i] == $array[$j] && $i != $j) {
-            $count += 1;
-            if ($i < $j) {
-                $resultArray[] = $i;}
-            else {
-                $resultArray[] = $j;
-                }
-            }
-    }
+   if (!in_array($array[$i],$resultArray)) {
+       $resultArray[] = $array[$i];
+   }
+   else {
+       $deletedElements[strval($i)] = $array[$i];
+   }
+
 }
 
-printf("Count = %s",$count);
+
 print_r($resultArray);
+print_r($deletedElements);
