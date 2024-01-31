@@ -7,14 +7,14 @@ class Game {
     //public string $result;
     //public string $winner = 'Not defined';
 
-    public function score() {
+    public function score():void {
         printf("Score $this->scoreTeam1 : $this->scoreTeam2\n");
 
     }
 
 
 
-    public function result() {
+    public function result():void {
         if ($this->scoreTeam1 == $this->scoreTeam2) {
             printf("It is draw\n");
             $this -> score();
@@ -38,7 +38,7 @@ class Game {
     }
 
 
-    public function play() {
+    public function play():void {
 
 
         While (True) {

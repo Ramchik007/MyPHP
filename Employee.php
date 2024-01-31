@@ -1,5 +1,5 @@
 <?php
-#[AllowDynamicProperties] class Employee
+class Employee
 {
     private string $lastName;
     private string $name;
@@ -18,7 +18,51 @@
 
     }
 
-   
+    public function getLastName():string
+    {
+        return $this->lastName;
+    }
+    public function getName():string
+    {
+        return $this->name;
+    }
+    public function getMiddleName():string
+    {
+        return $this->middleName;
+    }
+    public function getAddress():string
+    {
+        return $this->address;
+    }
+    public function getDateWork():string
+    {
+        return $this->dateWork;
+    }
+
+
+    /**
+     * @return string
+     */
+    public function getWorkingExperienceOnDate(): int
+    {
+        $month = $this->getDate()['month'];
+        $year = $this ->getDate()['year'];
+        if($month < (int)date('n')) {
+            return (int)date('Y') - (int)$year -1;
+
+        }
+        else {
+            return (int)date('Y') - (int)$year;
+        }
+
+    }
+
+
+    public function __toString(): string
+    {
+        return $this->lastName." ".$this->name." ".$this->middleName;
+    }
+
 
     public function getEmployee():string {
             return $this -> lastName." ".$this ->name." ".$this->middleName." ".$this->address."\n";
@@ -30,6 +74,8 @@
             return array('month'=>(int)$month,'year' => (int)$year);
 
     }
+
+
 
 
 }
