@@ -30,7 +30,8 @@ $newRepository -> setEmployees($person4);
 
 //print_r($newRepository);
 $newRepository -> getEmployees();
-$newRepository ->findEmployees('белова нат');
-
+//$newRepository ->findEmployees('ежда');
+$newRepository ->findEmployeesExp(50);
+//var_dump($testVar);
 
 
