@@ -28,5 +28,6 @@ for ($i = 1; $i <= 12; $i++) {
 }
 
 $averageDensity = array_sum ($density) / count ($density);
+$averageDensity = round($averageDensity,2);
 printf($averageDensity);
 

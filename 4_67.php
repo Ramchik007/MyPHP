@@ -12,8 +12,8 @@ in: 7
 out: Weekend
 */
 
-$day = 340;
+$day = 7;
 $out = "";
 
-$day % 6 == 0 || $day % 7 ==0 ? $out = "Weekend" : $out = "Workday";
+$day % 7 == 6 || $day % 7 == 0 ? $out = "Weekend" : $out = "Workday";
 printf("$out");

@@ -6,7 +6,7 @@ $word = 'Горчица';
 $word2 = 'арка';
 
 
-function checkSymbol($word) {
+function checkSymbol($word):void {
     if (mb_substr($word,-1,1) == mb_substr($word,0,1)) {
         printf("Начальный и конечный символы в слове $word совпадают\n");
     }

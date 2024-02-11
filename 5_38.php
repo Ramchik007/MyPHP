@@ -16,19 +16,21 @@
 */
 
 $distance = 1.5;
-$distanceHome = 0.5;
-for ($n = 3; $n <= 100; $n +=1 ) {
+$distanceToHome = 0.5;
+for ($n = 3; $n <= 100; $n += 1 ) {
     if ( $n % 2 != 0) {
-        $distanceHome += 1/$n;
+        $distanceToHome += 1/$n;
     }
     else {
-        $distanceHome -= 1/$n;
+        $distanceToHome -= 1/$n;
     }   
     $distance += 1/$n;
 }
+$distanceToHome = round($distanceToHome,2);
+$distance = round($distance,2);
 
-echo "Растояние до дома: $distanceHome\n";
-echo "Пройденное расстояние: $distance\n";
+echo "Растояние до дома: $distanceToHome км.\n";
+echo "Пройденное расстояние: $distance км.\n";
 
 
 

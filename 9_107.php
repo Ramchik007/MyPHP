@@ -4,44 +4,50 @@
 
 mb_internal_encoding("UTF-8");
 
-$word = 'Astarovnor';
-
-for ($i = 0; $i <= mb_strlen($word); $i++) {
+$word = 'AstarovorO';
+//$word = 'g';
+for ($i = 0; $i < mb_strlen($word); $i++) {
     if ($word[$i] == 'A' || $word[$i] == 'a'  ) {
-        $charAindex = $i;
-        //print_r($word[$charAindex]);
-        //print_r($charAindex);
+        $indexForA = $i;
         break;
+    }
+    else {
+        $indexForA = NULL;
     }
 }
 
-for ($i= -1; abs($i) <= mb_strlen($word); $i--) {
+for ($i= -1; abs($i) < mb_strlen($word); $i--) {
     if ($word[$i] == 'O'|| $word[$i] == 'o') {
-        $charOindex = $i;
+        $indexForO = $i;
+        $symbolForO = $word[$indexForO];
         break;
+    }
+    else {
+        $indexForO = NULL;
     }
 }
 
-if ($word[$charAindex]=='A') {
-    $word[$charOindex] = 'A';
-    
+if (isset($indexForA) AND isset($indexForO) AND isset($symbolForO)) {
+
+    if ($word[$indexForA] == 'A') {
+        $word[$indexForO] = 'A';
+    }
+    else {
+        $word[$indexForO] = 'a';
+    }
+
+
+    if ($symbolForO == 'O') {
+        $word[$indexForA] = 'O';
+    }
+    else {
+        $word[$indexForA] = 'o';
+    }
 }
 else {
-    $word[$charOindex] = 'a';
-   
-}
+    printf("Ошибка, слово не подходит условиям задачи\n");
+    }
 
-if ($word[$charOindex]=='O') {
-    $word[$charAindex] = 'O';
-    
-}
-else {
-    $word[$charAindex] = 'o';
-   
-}
-
-
-//$word[$charOindex] = 'a';
 
 printf($word);
 

@@ -5,20 +5,29 @@
 */
 
 $numbers = [];
-$resultArray = [];
-$n = 500;
-$i=1;
+$lessNumbers = [];
+$n = 600;
+
 for ($i=1; $i <= $n; $i++) {
     $numbers[$i] = $i**2;
 }
 
+$i = 1;
 foreach ($numbers as $value) {
     if ($value <= $n) {
-        $resultArray[$i] = $value;
-        $i+=1;    
+        $lessNumbers[$i] = $value;
+        $i+=1;
     }
 }
 
 
-//print_r($numbers);
-print_r($resultArray);
+foreach ($lessNumbers as $key => $value) {
+    if ($key != count($lessNumbers)) {
+        printf("$value, " );
+    }
+    else {
+        printf("$value.");
+    }
+
+}
+

@@ -8,7 +8,7 @@ $score = "$scoreTeam1 : $scoreTeam2\n";
 //$winner ='';
 
 printf("Game started!\n");
-while ( True) {
+while (True) {
     $choice = readline("1 - Team1 , 2 - Team2, 0 - quit:\n");
     if ($choice == "0") {
 
@@ -46,7 +46,7 @@ while ( True) {
             $step += 1;
         }
         else {
-            printf("Error, score can be only 1,2 or 3");
+            printf("Error, score can be only 1,2 or 3\n");
         }
     }
     else if($choice == "2") {
@@ -58,7 +58,7 @@ while ( True) {
             $step += 1;
         }
         else {
-            printf("Error, score can be only 1,2 or 3");
+            printf("Error, score can be only 1,2 or 3\n");
         }
     }
     else {

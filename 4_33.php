@@ -8,30 +8,49 @@
 (solve with one arithmetic operator)
 */
 
-function areEven($num){
-    $str = substr(strval($num),-1,1);
-    $tetsNum = (int)$str;
-    printf("Является ли число $num четным?\n");
-    if ($tetsNum % 2 === 0) {
-        printf("Верно\n");
-    }
-    else {
-        printf("Неверно\n");
-    }
+function getLastDigit($number):int
+{
+    $convertedNumber = strval($number);
+    return (int)substr($convertedNumber,-1,1);
 }
 
-function areNotEven($num){
-    $str = substr(strval($num),-1,1);
-    $tetsNum = (int)$str;
-    printf("Является ли число $num нечетным?\n");
-    if ($tetsNum % 2 === 0) {
-        printf("Неверно\n");
+function checkForEvenness($number):bool
+{
+    if($number % 2 === 0) {
+        return true;
     }
     else {
-        printf("Верно\n");
+        return false;
     }
 }
 
 
-areEven(6);
-areNotEven(6);
+function checkForNotEvenness($number):bool
+{
+    if($number % 2 !== 0) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
+
+
+$number = 568;
+
+if (checkForEvenness(getLastDigit($number))) {
+    printf("Верно, число $number заканчивается четной цифрой\n");
+}
+else {
+    printf("Неверно, число $number заканчивается нечетной цифрой\n");
+}
+
+
+if (checkForNotEvenness(getLastDigit($number))) {
+    printf("Верно, число $number заканчивается нечетной цифрой\n");
+}
+else {
+    printf("Неврено, число $number заканчивается четной цифрой\n");
+}
+

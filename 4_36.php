@@ -13,22 +13,23 @@ test2:
 in: 5
 out: green
 */
+
 $time = 3.0;
-$x = -0.01;
+$timeByStep = -0.01;
 $step = 0;
 
-while ($x <= $time) {
-    $x = $x + 3;
+while ($timeByStep <= $time) {
+    $timeByStep = $timeByStep + 3;
     $step += 1;
-    if ($x > $time) {
+    if ($timeByStep > $time) {
         break;
     }
     else {
-        $x = $x + 2;
+        $timeByStep = $timeByStep + 2;
         $step += 1;
     }
 }
 
-$color = $step % 2 == 0 ? print_r("red") : print_r("green");
+$color = $step % 2 == 0 ? printf("red") : printf("green");
 
 

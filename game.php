@@ -57,7 +57,7 @@ class Game {
                     $this -> score();                   
                 }
                 else {
-                    printf("Error, score can be only 1,2 or 3");
+                    printf("Error, score can be only 1,2 or 3\n");
                 }
             }
 
@@ -72,7 +72,7 @@ class Game {
                     
                 }
                 else {
-                    printf("Error, score can be only 1,2 or 3");
+                    printf("Error, score can be only 1,2 or 3\n");
                 }
             }
             else {

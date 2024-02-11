@@ -5,18 +5,19 @@
 
 $rate = readline("Введите курс доллара: ");
 if (is_numeric($rate)) {
-    $array = [];
+    $exchangeDollarRubles = [];
     for ($i = 1; $i <= 20; $i++) {
-        $array[$i] = $rate * $i;
+        $exchangeDollarRubles[$i] = $rate * $i;
     }
     printf("Доллары  Рубли\n");
-    foreach ($array as $key => $value) {
+    foreach ($exchangeDollarRubles as $key => $value) {
         if ($key <= 9) {
             printf("   $key      $value\n");
-        }
-        else {
+        } else {
             printf("   $key     $value\n");
         }
     }
 }
-    print_r("Ошибка ввода");
+
+else printf("Ошибка ввода");
+

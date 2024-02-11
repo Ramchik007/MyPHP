@@ -4,12 +4,29 @@
 между положением часовой стрелки в начале суток и в указанный момент
 времени.
 */
+
 date_default_timezone_set('Europe/Moscow');
-printf("Текущее время в 12 часовом формате:" . date("h-i-s") ."\n");
+$currentTime = time();
+$hours = idate('h',$currentTime);
+$minutes = idate('i',$currentTime);
+$seconds = idate('s',$currentTime);
 
-$degPerMin = 0.5;
-$degPerSec = 0.08;
-$minutes = ((int)date('h')) * 60 + ((int)(date('i')));
-$deviation = $minutes * $degPerMin;
+function convertTimeToMinutes($hours, $minutes, $seconds):float {
+    return $hours * 60 + $minutes + $seconds / 60;
+}
 
-printf("Текущее отклонение часовой стрелки : " . $deviation);
+function printReceivedTimeStamp($hours,$minutes,$seconds):void
+{
+    printf("Для времени $hours:$minutes:$seconds\n");
+}
+
+
+printReceivedTimeStamp($hours,$minutes,$seconds);
+
+$deviationPerMinute = 0.5;
+$deviationPerSecond = 0.08;
+$minutes = convertTimeToMinutes($hours,$minutes,$seconds);
+$deviation = round(($minutes * $deviationPerMinute),2);
+
+printf("Отклонение часовой стрелки : $deviation градусов/градуса ");
+

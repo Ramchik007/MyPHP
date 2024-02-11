@@ -17,21 +17,24 @@ test3:
     out:        29
 */
 
-//$curMonth = date('m');
-//$curYear = date('Y');
-
-function calcAge() {
-    //global $curMonth, $curYear;
-    $birthMonth = readline("Введите месяц Вашего рождения: ");
-    $birthYear = readline("Введите год Вашего рождения: ");
-
+function calcAge($birthMonth,$birthYear):int {
     if ($birthMonth <= date('m')) {
         $age = (int)date('Y') - (int)$birthYear;
     }
     else {
         $age = (int)date('Y') - (int)$birthYear -1;
     }   
-    printf("Ваш возраст : ".$age);
+    return $age;
 }
 
-calcAge();
+$birthMonth = readline("Введите месяц Вашего рождения: ");
+$birthYear = readline("Введите год Вашего рождения: ");
+if (is_numeric($birthMonth) && (is_numeric($birthYear)) &&
+    $birthMonth > 0 && $birthYear > 0  && $birthMonth <= 12)  {
+    $age = calcAge($birthMonth,$birthYear);
+    printf("Ваш возраст : $age");
+}
+else {
+    printf("Ошибка ввода, Вы ввели $birthMonth и $birthYear ");
+}
+

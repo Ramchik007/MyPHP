@@ -3,51 +3,47 @@
 //в рассматриваемом предложении нет начальных и конечных пробелов и символов "-";
 //количество слов в предложении не превышает 10.
 
-//$text = 'MMA is on top today!';
-$text = 'MMA is on top today and tomorrow!';
-$first = '';
-$last='';
-$charIndex = 0;
-$newText='';
+$text = 'MMA is on top today and tomorrow.';
+$firstWord = '';
+$lastWord = '';
+$delimiter = 0;
+$textWithoutLastSymbol = '';
 $lastSymbol = $text[-1];
-//Временно удаляем символ завершения предложения
 
+//Временно удаляем символ завершения предложения
 if ($text[-1] == '.' || $text[-1] == '!' || $text[-1] == '?'  ) {
     for ($i = 0; $i < strlen($text)-1 ; $i++) {
-        $newText .= $text[$i];
+        $textWithoutLastSymbol .= $text[$i];
     }
 }
 
-
 // Находим первое слово в предложении
-for ($i=0; $i<=mb_strlen($newText)-1; $i++) {
-    if ($newText[$i] == ' ' || $newText[$i] == ', ' ) {
-        $charIndex = $i;
+for ($i=0; $i<=mb_strlen($textWithoutLastSymbol)-1; $i++) {
+    if ($textWithoutLastSymbol[$i] == ' ' || $textWithoutLastSymbol[$i] == ', ' ) {
+        $delimiter = $i;
         break;       
     }
 }
 
-for ($j= 0; $j<$charIndex; $j++) {
-    $first .= $newText[$j];
+for ($j= 0; $j<$delimiter; $j++) {
+    $firstWord .= $textWithoutLastSymbol[$j];
         }
-
 
 // Находим последнее слово в предложении
 
-for ($i=-1; abs($i) < mb_strlen($newText); $i--) {
-    if ($newText[$i] == ' ' || $newText[$i] == ' ,' ) {
-        $charIndex = $i+1;
+for ($i=-1; abs($i) < mb_strlen($textWithoutLastSymbol); $i--) {
+    if ($textWithoutLastSymbol[$i] == ' ' || $textWithoutLastSymbol[$i] == ' ,' ) {
+        $delimiter = $i + 1;
         break;
     }
 }
 
-for ($j=$charIndex; $j <= -1; $j++) {
-    $last .= $newText[$j];
+for ($j=$delimiter; $j <= -1; $j++) {
+    $lastWord .= $textWithoutLastSymbol[$j];
         }
 
-
-$result = substr_replace($newText,$last,0,strlen($first));
-$result = substr_replace($result,$first,$charIndex,strlen($last));
-print_r($result.$lastSymbol);
+$result = substr_replace($textWithoutLastSymbol,$lastWord,0,strlen($firstWord));
+$result = substr_replace($result,$firstWord,$delimiter,strlen($lastWord));
+printf($result.$lastSymbol);
 
 

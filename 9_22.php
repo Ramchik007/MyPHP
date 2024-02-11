@@ -4,6 +4,4 @@
 
 $word = 'абвгдеёжзийклм';
 $wordLen = mb_strlen($word) / 2;
-
-
 printf(mb_substr($word,0,$wordLen));

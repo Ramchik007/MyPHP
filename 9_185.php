@@ -12,7 +12,7 @@ $closeCount = 0;
 
 $errCloseIndex = null;
 
-function countTag($substr) {
+function calcTagCount($substr):int {
     $tagCount = 0;
     for ($i=0; $i <= strlen($substr)-1; $i+=1) {
         if ($substr[$i] == '(') {
@@ -33,7 +33,6 @@ for ($i=0; $i <= strlen($str)-1; $i++) {
     }
 }
 
-//printf("%s and %s\n",$openCount,$closeCount);
 
 if ($openCount == $closeCount) {
     printf("Скобки расставлены верно\n");
@@ -43,14 +42,12 @@ else {
         printf("Открывающих скобок больше чем закрывающих на %s.", $openCount - $closeCount);
     }
     else {
-        //print_r("Алгоритм поиска лишних закрывающих");
-        //print_r(countTag($str));
         $count = 0;
         for ($i=0; $i <= strlen($str)-1; $i++) {
             if ($str[$i] == ')') {
                 $index = $i;
                 $count += 1;
-                if (countTag(substr($str,0,$index)) < $count) {
+                if (calcTagCount(substr($str,0,$index)) < $count) {
                     print_r("Позиция первой лишней закрывающей скобки $index");
                     break;
                 }

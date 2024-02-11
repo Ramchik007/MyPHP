@@ -10,8 +10,8 @@ col for (!x|!z)) and the last one with the final result for inputs:
 xyz subExpr1 subExpr2 res
 000 001 010 011 100 101 110 111
 */
-function printResult($result) {
-    if ($result == true) {
+function printResult($result):void {
+    if ($result) {
         printf("True\n");
     }
     else {
@@ -19,19 +19,16 @@ function printResult($result) {
     }
 }
 
-function getResultA($X,$Y,$Z) {
-    $resultA = !($X || $Y) && (!($X) || !($Z));
-    return $resultA;
+function getResultA($X,$Y,$Z):bool {
+    return !($X || $Y) && ( !($X) || !($Z) );
 }
 
-function getResultB($X,$Y,$Z) {
-    $resultB = !(!$X && $Y) || ($X || !($Z));
-    return $resultB;
+function getResultB($X,$Y,$Z):bool {
+    return !( !$X && $Y ) || ($X || !($Z));
 }
 
-function getResultC($X,$Y,$Z) {
-    $resultC = $X || !$Y && !($X || !($Z));
-    return $resultC;
+function getResultC($X,$Y,$Z):bool {
+    return $X || !$Y && !($X || !($Z));
 }
 
 printf("Результат выполнения выражения а:\n");
