@@ -4,22 +4,22 @@
 месяц.
 */
 
-$inDate =  date('d : m');
+$date =  date('d : m');
 
-$inMonth = (int)date('m');
+$month = (int)date('m');
 
-switch ($inMonth) {
+switch ($month) {
     
-    case $inMonth == 12 || $inMonth ==  1 || $inMonth ==  2 :
+    case $month == 12 || $month ==  1 || $month ==  2 :
         echo "Зима";
         break;
-    case $inMonth ==  3 || $inMonth ==  4 || $inMonth ==  5 :
+    case $month ==  3 || $month ==  4 || $month ==  5 :
         echo "Весна";
         break;
-    case $inMonth ==  6 || $inMonth ==  7 || $inMonth ==  8 :
+    case $month ==  6 || $month ==  7 || $month ==  8 :
         echo "Лето";
         break;
-    case $inMonth ==  9 || $inMonth ==  10 || $inMonth ==  11 :
+    case $month ==  9 || $month ==  10 || $month ==  11 :
         echo "Осень";
         break;    
 
